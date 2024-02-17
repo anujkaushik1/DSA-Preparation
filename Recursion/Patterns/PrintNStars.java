@@ -2,6 +2,46 @@ package Recursion.Patterns;
 
 public class PrintNStars {
 
+    static void printStars(int row, int col, int n){
+
+        if(row > n){       // saari rows purri hogai
+            return;
+        }
+
+        if(col > n){        // uss current row mei sarre cols tk * print krdia
+            System.out.println();
+            printStars(row + 1, 1, n);
+
+            System.out.println("for understanding = " + col+ "---" + row);
+            return;
+        }
+
+        System.out.print("* ");
+        printStars(row, col + 1, n);
+
+    }
+
+    public static void main(String[] args) {
+        printStars(1,1,4);
+    }
+    
+//            * * * *
+//            * * * *
+//            * * * *
+//            * * * *
+//            for understanding = 5---4
+//            for understanding = 5---3
+//            for understanding = 5---2
+//            for understanding = 5---1
+
+}
+
+
+
+package Recursion.Patterns;
+
+public class PrintNStars {
+
     static void lineByLine(int n, int fixed){
 
         if(n == 0){
