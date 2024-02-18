@@ -10,10 +10,12 @@ public class RemoveOccurence {
         }
 
         if(str.charAt(idx) != x){
-            ans += str.charAt(idx);
+            printWithoutOccurence(str, idx + 1, ans + str.charAt(idx), x);
         }
+        else{
+            printWithoutOccurence(str, idx + 1, ans, x);
 
-        printWithoutOccurence(str, idx + 1, ans, x);
+        }
 
     }
 
