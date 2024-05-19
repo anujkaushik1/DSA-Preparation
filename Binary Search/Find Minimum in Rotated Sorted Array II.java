@@ -5,11 +5,10 @@ class Solution {
         while(low <= high){
             int mid = high - (high - low)/2;
 
-            // shrinking
             if(arr[mid] == arr[low] && arr[mid] == arr[high]){
+                min = Math.min(arr[mid], min);
                 low++;
                 high--;
-                min = Math.min(arr[mid], min);
                 continue;
             }
 
