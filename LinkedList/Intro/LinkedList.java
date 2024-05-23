@@ -156,5 +156,23 @@ public class LinkedList {
          return false;
     }
 
+    public void insertBeforeVal(int before, int after){
+         if(head.data == after){
+             addFirst(before);
+             return;
+         }
+
+         Node temp = head;
+         Node newNode = new Node(before);
+
+         while (temp.next != null && temp.next.data != after){
+             temp = temp.next;
+         }
+
+         newNode.next = temp.next;
+         temp.next = newNode;
+
+    }
+
 
 }
