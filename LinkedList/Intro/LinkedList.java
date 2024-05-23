@@ -132,4 +132,29 @@ public class LinkedList {
         return data;
 
     }
+
+    public int length(){
+         Node temp = head;
+         int length = 0;
+         while(temp != null){
+             length++;
+             temp = temp.next;
+         }
+         return length;
+    }
+
+    public boolean isExists(int element){
+         Node temp = head;
+
+         while(temp != null){
+             if(temp.data == element){
+                 return true;
+             }
+             temp = temp.next;
+         }
+
+         return false;
+    }
+
+
 }
