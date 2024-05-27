@@ -34,8 +34,10 @@ public class DoublyLinkedList {
             return;
         }
 
+        head.prev = nn;
         nn.next = this.head;
-        this.head = head;
+        this.head = nn;
+
 
     }
 
@@ -56,5 +58,90 @@ public class DoublyLinkedList {
         }
     }
 
+    public void insertAtIndex(int idx, int data){
+        if(idx == 0){
+            addFirst(data);
+            return;
+        }
+        Node temp = head;
+        for(int i = 0; i < idx - 1; i++){
+            if(temp.next == null){
+                addLast(data);
+                return;
+            }
+            temp = temp.next;
+        }
+
+        Node nn = new Node(data);
+        temp.next.prev = nn;
+        nn.next = temp.next;
+        nn.prev = temp;
+        temp.next = nn;
+    }
+
+    public void removeFirst(){
+        if(head == null){
+            return;
+        }
+
+        if(this.head.next == null){
+            this.head = this.head.next;
+            return;
+        }
+
+        this.head = this.head.next;
+        this.head.prev = null;
+
+    }
+
+    public void removeLast(){
+        if(this.head == null){
+            return;
+        }
+
+        if(this.head.next == null){
+            removeFirst();
+            return;
+        }
+
+        Node temp = head;
+        while(temp.next.next != null){
+            temp = temp.next;
+        }
+
+        temp.next = null;
+    }
+
+    public void removeAt(int idx){
+        if(idx < 0){
+            return;
+        }
+
+        if(idx == 0){
+            removeFirst();
+            return;
+        }
+
+        Node temp = head;
+
+        for(int i = 0; i < idx - 1; i++){
+            if(temp.next == null){
+                return;
+            }
+            temp = temp.next;
+        }
+
+        if(temp.next == null){
+            return;
+        }
+
+        if(temp.next.next == null){
+            temp.next = null;
+            return;
+        }
+
+        temp.next = temp.next.next;
+        temp.next.prev = temp;
+    }
 
 }
