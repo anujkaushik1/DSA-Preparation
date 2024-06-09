@@ -1,3 +1,44 @@
+TC - O(2*N)
+
+// definetly tbh ishr ayega jbh loop hoga
+    static int findLength(Node slow, Node fast){
+        int counter = 1;
+        slow = slow.next;
+        
+        while(slow != fast){
+            slow = slow.next;
+            counter++;
+        }
+        
+        return counter;
+    }
+    
+    static int countNodesinLoop(Node head)
+    {
+        Node slow = head;
+        Node fast = head;
+        
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            
+            if(slow == fast){
+                return findLength(slow, fast);
+            }
+        }
+        
+        return 0;
+        
+        
+    }
+
+
+
+
+
+
+
+
 /*
 
 class Node
