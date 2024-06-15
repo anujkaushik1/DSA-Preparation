@@ -5,7 +5,7 @@ static List<Integer> leftSmaller(int n, int arr[])
         arr[0] = -1;
 
         for(int i = 1; i < arr.length; i++){
-            while (!st.isEmpty() && arr[i] <= st.peek()){
+            while (!st.isEmpty() && arr[i] <= st.peek()){  // equal to lgya because i/p - [19,19,19,19] is case mei agar euql nai lga rkha toh stack kbhi khali nai hota or output [19,19,19,19] hota instead of -1,-1,-1,-1
                 st.pop();
             }
             
