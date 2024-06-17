@@ -44,11 +44,11 @@ Stack<Character> st = new Stack<>();
                     st.push(ch);
                 }
 
-                else if(getPrecedence(ch) > getPrecedence(st.peek())){
+                else if(getPrecedence(ch) >= getPrecedence(st.peek())){
                     st.push(ch);
                 }
                 else{
-                    while (!st.isEmpty() && getPrecedence(st.peek()) >= getPrecedence(ch)){
+                    while (!st.isEmpty() && getPrecedence(st.peek()) > getPrecedence(ch)){
                         output += st.pop();
                     }
                     st.push(ch);
