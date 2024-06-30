@@ -1,3 +1,29 @@
+class Solution {
+    List<Integer> li = new ArrayList<>();
+         void printlex(int n, int i){
+        if(i <= n && i != 0){
+            li.add(i);
+        }
+        if(i > n){
+            return;
+        }
+
+        for(int j = 0; j <= 9; j++){
+            int res = (10 * i) + j;
+            if(res == 0) continue;
+            printlex(n, res);
+        }
+
+    }
+
+    public List<Integer> lexicalOrder(int n) {
+       
+        printlex(n, 0);
+        return li;
+    }
+}
+
+
 package Recursion.Strings;
 
 public class LexographicalOrder {
