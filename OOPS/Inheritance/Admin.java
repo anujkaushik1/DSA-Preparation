@@ -10,10 +10,16 @@ public class Admin extends Users{
         System.out.println("Admin managing products");
     }
 
+  @Override
+    public void dashboard() {
+        System.out.println("Admin dashboard");
+    }
 
     public static void main(String[] args) {
         Admin ad = new Admin("Anuj", "anuj@gmail.com");
         ad.login();
         ad.manageProducts();
+        ad.dashboard();
     }
+
 }
