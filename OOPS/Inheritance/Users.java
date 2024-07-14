@@ -13,4 +13,8 @@ public class Users {
     public void login(){
         System.out.println("User logged in: " + userName + "  " + email);
     }
+
+    public void dashboard(){
+        System.out.println("User dashboard calling");
+    }
 }
