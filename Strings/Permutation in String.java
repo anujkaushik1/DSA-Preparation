@@ -1,3 +1,35 @@
+class Solution {
+
+    public boolean checkInclusion(String s1, String s2) {
+       int[] comp = new int[s1.length()];
+        for(int k = 0; k < s1.length(); k++){
+            comp[k] = s1.charAt(k) - 97;
+        }
+        Arrays.sort(comp);
+
+        int i = 0, j = s1.length();
+
+        while (j <= s2.length()){
+            String sub = s2.substring(i, j);
+            int[] comp2 = new int[s1.length()];
+            for(int k = 0; k < sub.length(); k++){
+                comp2[k] = sub.charAt(k) - 97;
+            }
+            Arrays.sort(comp2);
+
+            if(Arrays.equals(comp, comp2)){
+                return true;
+            }
+
+            i++;
+            j++;
+        }
+
+        return false;
+    }
+}
+
+
 // TLE
 
 class Solution {
