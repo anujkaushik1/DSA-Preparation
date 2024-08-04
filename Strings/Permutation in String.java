@@ -29,6 +29,40 @@ class Solution {
     }
 }
 
+class Solution {
+    public boolean checkInclusion(String s1, String s2) {
+        
+        int alpha[] = new int[26];
+
+        for(int i = 0; i < s1.length(); i++){
+            int index = s1.charAt(i) - 'a';
+            alpha[index]++;
+        }
+
+        int i = 0, j = s1.length() - 1;
+
+        while(j < s2.length()){
+
+            int alpha1[] = new int[26];
+
+            for(int k = i; k <= j; k++){
+                int index = s2.charAt(k) - 'a';
+                alpha1[index]++;
+            }
+
+            boolean res = Arrays.equals(alpha, alpha1);
+
+            if(res) return true;
+
+            j++;
+            i++;
+
+        }
+
+        return false;
+
+    }
+}
 
 // TLE
 
